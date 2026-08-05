@@ -130,6 +130,12 @@ public class SettingsHandler
 				this.configurationInstance.ShowTargetOfTarget.ToggleBool(v, t)
 			);
 
+		this.settingActions[nameof(this.configurationInstance.EnableInAllTerritories)] =
+			this.CreateDirectToggleAction((v, t) =>
+					this.configurationInstance.EnableInAllTerritories.ToggleBool(v, t),
+				() => this.frameworkUpdateHandler.RequestRefresh()
+			);
+
 		// --- Territory Config Settings (using nameof(TerritoryConfig.Property)) ---
 
 		// Hide Section

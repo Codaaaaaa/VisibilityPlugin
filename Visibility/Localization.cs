@@ -175,6 +175,9 @@ public class Localization
 	public string OptionContextMenuTip => this.GetString("OptionContextMenuTip", this.CurrentLanguage);
 	public string OptionShowTargetOfTarget => this.GetString("OptionShowTargetOfTarget", this.CurrentLanguage);
 	public string OptionShowTargetOfTargetTip => this.GetString("OptionShowTargetOfTargetTip", this.CurrentLanguage);
+	public string OptionAllTerritories => this.GetString("OptionAllTerritories", this.CurrentLanguage);
+	public string OptionAllTerritoriesTip => this.GetString("OptionAllTerritoriesTip", this.CurrentLanguage);
+	public string OptionHideInCombat => this.GetString("OptionHideInCombat", this.CurrentLanguage);
 	public string OptionRefresh => this.GetString("OptionRefresh", this.CurrentLanguage);
 	public string OptionAddPlayer => this.GetString("OptionAddPlayer", this.CurrentLanguage);
 	public string OptionRemovePlayer => this.GetString("OptionRemovePlayer", this.CurrentLanguage);

@@ -54,6 +54,8 @@ public class FrameworkHandler: IDisposable
 	private readonly ChocoboHandler chocoboHandler;
 	private readonly MinionHandler minionHandler;
 
+	private readonly VisibilityConfiguration configuration;
+
 	private Func<bool>? isDisabled;
 	private bool isChangingTerritory;
 
@@ -66,6 +68,8 @@ public class FrameworkHandler: IDisposable
 	/// </summary>
 	public unsafe FrameworkHandler(VisibilityConfiguration configuration)
 	{
+		this.configuration = configuration;
+
 		// Initialize managers
 		this.containerManager = new ContainerManager();
 		this.voidListManager = new VoidListManager(configuration);
@@ -106,8 +110,10 @@ public class FrameworkHandler: IDisposable
 			return;
 
 		// Check if player is in a duty or other special area
+		// When EnableInAllTerritories is set, duties no longer count as bound so hiding applies everywhere
 		bool isBound = (Service.Condition[ConditionFlag.BoundByDuty] &&
-		                localPlayerGameObject->EventId.ContentId != EventHandlerContent.TreasureHuntDirector)
+		                localPlayerGameObject->EventId.ContentId != EventHandlerContent.TreasureHuntDirector &&
+		                !this.configuration.EnableInAllTerritories)
 		               || Service.Condition[ConditionFlag.BetweenAreas]
 		               || Service.Condition[ConditionFlag.WatchingCutscene]
 		               || Service.Condition[ConditionFlag.DutyRecorderPlayback];

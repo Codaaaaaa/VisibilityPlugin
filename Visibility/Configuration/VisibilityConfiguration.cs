@@ -16,13 +16,14 @@ public partial class VisibilityConfiguration: IPluginConfiguration
 {
 	public int Version { get; set; }
 
-	public Localization.Language Language { get; set; }
+	public Localization.Language Language { get; set; } = Localization.Language.ChineseSimplified;
 
 	public bool Enabled;
 	public bool HideStar;
 	public bool AdvancedEnabled;
 	public bool EnableContextMenu;
 	public bool ShowTargetOfTarget;
+	public bool EnableInAllTerritories;
 
 	public List<VoidItem> VoidList { get; } = [];
 

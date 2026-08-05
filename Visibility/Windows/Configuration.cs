@@ -107,7 +107,7 @@ public class Configuration: Window
 				this.pluginLocalization.OptionHideAll,
 				ImGuiTableColumnFlags.NoSort | ImGuiTableColumnFlags.WidthStretch);
 			ImGui.TableSetupColumn(
-				"Hide in combat",
+				this.pluginLocalization.OptionHideInCombat,
 				ImGuiTableColumnFlags.NoSort | ImGuiTableColumnFlags.WidthStretch);
 			ImGui.TableSetupColumn(
 				this.pluginLocalization.OptionShowParty,
@@ -253,6 +253,15 @@ public class Configuration: Window
 		if (ImGui.IsItemHovered())
 		{
 			ImGui.SetTooltip(this.pluginLocalization.OptionEarthlyStarTip);
+		}
+
+		ImGui.NextColumn();
+		ImGuiElements.Checkbox(this.configuration.EnableInAllTerritories, nameof(this.configuration.EnableInAllTerritories), this.configuration);
+		ImGui.SameLine();
+		ImGui.Text(this.pluginLocalization.OptionAllTerritories);
+		if (ImGui.IsItemHovered())
+		{
+			ImGui.SetTooltip(this.pluginLocalization.OptionAllTerritoriesTip);
 		}
 
 		ImGui.NextColumn();
